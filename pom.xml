@@ -69,19 +69,19 @@
                         <!-- проверяем, что билд-JDK ≥ 21 -->
                         <execution>
                             <id>enforce-java</id>
-                            <goals> <goal>enforce</goal> </goals>
+                            <goals><goal>enforce</goal></goals>
 
                             <configuration>
                                 <rules>
                                     <requireJavaVersion>
-                                        <!-- “21 inclusive, ∞” -->
+                                        <!-- «21 и выше» -->
                                         <version>[21,)</version>
                                         <message>
-                                            You must build with JDK 21 or newer (current: ${java.version})
+                                            You must build with JDK 21 or newer (detected ${java.version})
                                         </message>
                                     </requireJavaVersion>
                                 </rules>
-                                <!-- если появятся другие правила, не прекращать проверку на первой ошибке -->
+                                <!-- если позже появятся ещё правила — не падаем на первой ошибке -->
                                 <failFast>false</failFast>
                             </configuration>
                         </execution>

@@ -21,16 +21,17 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: graalvm
-          java-version: '24'
+          java-version: '21.0.3'
           cache: maven
-          check-latest: true
-          # автомат. ставит Native Image; если хочется вручную:
+          components: native-image
+
+        # автомат. ставит Native Image; если хочется вручную:
           #  - run: gu install native-image
 
-      - name: Install Native Image component
-        run: |
-          echo "Installing native-image…"
-          gu install native-image
+#      - name: Install Native Image component
+#        run: |
+#          echo "Installing native-image…"
+#          "${JAVA_HOME}/bin/gu" install native-image
 
       - name: Show java -version
         run: java -version
