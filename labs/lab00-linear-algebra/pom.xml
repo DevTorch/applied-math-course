@@ -63,10 +63,13 @@
                         <groupId>org.graalvm.buildtools</groupId>
                         <artifactId>native-maven-plugin</artifactId>
                         <version>0.10.6</version>
+                        <configuration>
+                            <mainClass>com.github.devtorch.courses.appliedmath.lab00.Main</mainClass>
+                        </configuration>
                         <executions>
                             <execution>
                                 <goals>
-                                    <goal>compile</goal>
+                                    <goal>compile-no-fork</goal>
                                 </goals>
                             </execution>
                         </executions>
