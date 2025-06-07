@@ -4,12 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.github.devtorch.courses.applied-math</groupId>
+        <groupId>com.github.devtorch.courses.appliedmath</groupId>
         <artifactId>applied-math-course</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>module01-linear-algebra</artifactId>
+    <name>Модуль 01 | Линейная алгебра</name>
 
     <properties>
         <maven.compiler.source>24</maven.compiler.source>
