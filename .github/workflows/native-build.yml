@@ -27,6 +27,11 @@ jobs:
           # автомат. ставит Native Image; если хочется вручную:
           #  - run: gu install native-image
 
+      - name: Install Native Image component
+        run: |
+          echo "Installing native-image…"
+          gu install native-image
+
       - name: Show java -version
         run: java -version
 

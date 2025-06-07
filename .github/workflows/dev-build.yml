@@ -22,5 +22,8 @@ jobs:
           java-version: '21'
           cache: maven      # кеширует ~/.m2/repository
 
+      - name: Quick Check
+        run: mvn -q verify -Pdev -pl labs/lab00-*
+
       - name: Build & test with Maven (dev profile)
         run: mvn -B verify -Pdev
