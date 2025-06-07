@@ -1,10 +1,10 @@
-name: Native Build (GraalVM 24)
+name: Native Build (GraalVM CE 24 / JDK 21)
 
 on:
   pull_request:
-    branches: [ main ]   # чтобы не тормозить каждый push в feature-ветки
+    branches: [ main ]
     paths:
-      - '**/lab*/**'     # гоняем CI только для лабораторных модулей
+      - '**/lab*/**'
       - 'project/**'
       - 'pom.xml'
   workflow_dispatch:
@@ -14,36 +14,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up GraalVM 24 CE (with Native Image)
+      - name: Set up GraalVM 24 with Native Image
         uses: actions/setup-java@v4
         with:
           distribution: graalvm
-          java-version: '24'
+          java-version: '21'       # ← GraalVM 24 + JDK 21
           cache: maven
-          check-latest: true
-          # автомат. ставит Native Image; если хочется вручную:
-          #  - run: gu install native-image
+          components: native-image
 
-      - name: Install Native Image component
-        run: |
-          echo "Installing native-image…"
-          gu install native-image
+      - run: java -version
 
-      - name: Show java -version
-        run: java -version
-
-      - name: Build & test with Maven (native profile)
+      - name: Build & test (native profile)
         run: mvn -B verify -Pnative
 
-      # опционально: загружаем артефакт с нативным бинарем
       - name: Upload native executable
-        if: |
-          startsWith(github.event.pull_request.head.ref, 'lab')
+        if: startsWith(github.event.pull_request.head.ref, 'lab')
         uses: actions/upload-artifact@v4
         with:
           name: native-image
-          path: |
-            **/target/*-runner
+          path: "**/target/*-runner"
