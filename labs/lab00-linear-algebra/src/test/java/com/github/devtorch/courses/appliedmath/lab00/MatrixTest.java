@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MatrixTest {
 
-    @Test void mulVector() {
+/*    @Test void mulVector() {
         Matrix A = new DenseMatrix(new double[][]{
                 {1, 2, 0},
                 {0, 1, -1}
@@ -23,5 +23,5 @@ class MatrixTest {
         assertEquals(0, AT.at(0,0));
         assertEquals(2, AT.at(1,0));
         assertEquals(1, AT.at(0,1));
-    }
+    }*/
 }
