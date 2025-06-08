@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolchains>
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <version>24</version>
+      <vendor>GraalVM</vendor>
+    </provides>
+    <configuration>
+      <jdkHome>${env.JAVA_HOME_GRAAL}</jdkHome>
+    </configuration>
+  </toolchain>
+  <!-- можете добавить сюда и JDK-21, если нужно -->
+</toolchains>
